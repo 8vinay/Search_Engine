@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400" rel="stylesheet" />
+    <link href="/static/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="s128">
+      <table id="myTable" align="center">
+      <th align="left"><h2>{{query}}</h2></th>
+      <tr></tr>
+      {% for your_list_element in links %}
+      <tr>
+      <td>
+      <a href={{your_list_element}} target="_blank">{{ your_list_element }}</a>
+      </td>
+      </tr>
+      {% endfor %}
+      <tr>
+      <td align="right">
+      <button type="button"  onclick="myFunction({{links1}})">more...</button>
+      </td>
+      </tr>
+      </table>
+    </div>
+<script>
+  function myFunction(x) {
+    var table = document.getElementById("myTable");
+    table.deleteRow(myTable.rows.length - 1)
+    for (i = 0; i < x.length; i++)  
+    { 
+      var row = table.insertRow(myTable.rows.length);
+      var cell = row.insertCell(0);
+      cell.innerHTML = "<a href='"+x[i]+"'target="+"\"_blank\""+">"+x[i]+"</a>"; 
+    } 
+    
+  }
+</script>
+  </body>
+</html>
